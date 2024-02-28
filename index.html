@@ -1035,7 +1035,9 @@ Kami yang berbahagia,</p>		</div>
                                     </div>
 
                                     
-                                                                                <div class="wdp-dear" style="width: auto !important;" >Bapak/Ibu/Saudara/i</div>
+                                                                                <!-- <div class="wdp-dear" style="width: auto !important;" >Bapak/Ibu/Saudara/i</div> -->
+																				<div class="wdp-dear" id="greeting">Bapak/Ibu/Saudara/i</div>
+																				
                                                                         <div class="wdp-name namatamu" style="width: auto !important;"></div>
                                                                                     <div class="wdp-text" style="width: auto !important;" >Tanpa Mengurangi Rasa Hormat, Kami Mengundang Anda Untuk Berhadir Di Acara Pernikahan Kami.</div>
                                         
@@ -1054,7 +1056,19 @@ Kami yang berbahagia,</p>		</div>
                             </div>
                    </div>
         
-     
+				   <script>
+					// Mendapatkan nilai parameter 'name' dari URL
+					const urlParams = new URLSearchParams(window.location.search);
+					const toName = urlParams.get('to');
+				
+					// Mendapatkan elemen dengan ID 'greeting'
+					const greetingElement = document.getElementById('greeting');
+				
+					// Mengganti teks di dalam elemen dengan nilai parameter 'name'
+					if (toName) {
+    				greetingElement.textContent = toName;
+					}
+				</script>
 
         <script>
             const sampul = jQuery('.modalx').data('sampul');
