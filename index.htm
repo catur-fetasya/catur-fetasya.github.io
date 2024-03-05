@@ -2492,8 +2492,8 @@
                                                                                 style="font-size:30px"
                                                                                 class="far fa-calendar-alt"></i>
                                                                             <div class="qr-event-container">
-                                                                                <p class="qr-event-date"> Rabu, 18
-                                                                                    Februari 2022</p>
+                                                                                <p class="qr-event-date"> Minggu, 12
+                                                                                    Mei 2024</p>
                                                                                 <p class="qr-event-times">Pukul 10.00 -
                                                                                     14.00 WIB</p>
                                                                             </div>
@@ -2517,11 +2517,11 @@
                                                                                 Scan QR Code digunakan untuk mencatat
                                                                                 kehadiran dan menukarkan souvenir.</p>
                                                                         </div>
-                                                                        <div class="img-credit">
+                                                                        <!-- <div class="img-credit">
                                                                             <p id="foot_text">Made with love by 💌
                                                                                 <strong>foreverr.id</strong>
                                                                             </p>
-                                                                        </div>
+                                                                        </div> -->
                                                                     </div> <a id="download-qr">DOWNLOAD E-INVITATION</a>
                                                                     <div id="loadImgx"
                                                                         style="text-align: center;margin: 14px 0;">
@@ -2880,13 +2880,21 @@
         // Mendapatkan nilai parameter 'to' dari URL
         const urlParams = new URLSearchParams(window.location.search);
         const namaTamu = urlParams.get('to');
-
-        // Menangkap elemen dengan class 'nmt' dan mengganti teksnya dengan nama tamu
-        const elemenNamaTamu = document.querySelector('.nmt');
-        if (elemenNamaTamu) {
-            elemenNamaTamu.textContent = namaTamu || "Tamu";
+      
+        // Menangkap elemen dengan class 'nmt' dan mengganti teksnya dengan nama tamu pada contoh pertama
+        const elemenNamaTamu1 = document.querySelector('.nmt');
+        if (elemenNamaTamu1) {
+          elemenNamaTamu1.textContent = namaTamu || "Tamu Undangan";
         }
-    </script>
+      
+        // Menangkap elemen <p> dalam class 'qrcode-to' dan mengganti teksnya dengan nama tamu pada contoh kedua
+        const elemenNamaTamu2 = document.querySelector('.qrcode-to p');
+        if (elemenNamaTamu2) {
+          elemenNamaTamu2.textContent = namaTamu || "Tamu Undangan";
+        }
+      </script>
+      
+    
     <script
         id="elementor-pro-frontend-js-before">var ElementorProFrontendConfig = { "ajaxurl": "https:\/\/foreverr.id\/wp-admin\/admin-ajax.php", "nonce": "40f83a806e", "urls": { "assets": "https:\/\/foreverr.id\/wp-content\/plugins\/elementor-pro\/assets\/", "rest": "https:\/\/foreverr.id\/f6018700d720c997933c088b3493981ffe50602e\/api\/foreverr\/" }, "shareButtonsNetworks": { "facebook": { "title": "Facebook", "has_counter": true }, "twitter": { "title": "Twitter" }, "linkedin": { "title": "LinkedIn", "has_counter": true }, "pinterest": { "title": "Pinterest", "has_counter": true }, "reddit": { "title": "Reddit", "has_counter": true }, "vk": { "title": "VK", "has_counter": true }, "odnoklassniki": { "title": "OK", "has_counter": true }, "tumblr": { "title": "Tumblr" }, "digg": { "title": "Digg" }, "skype": { "title": "Skype" }, "stumbleupon": { "title": "StumbleUpon", "has_counter": true }, "mix": { "title": "Mix" }, "telegram": { "title": "Telegram" }, "pocket": { "title": "Pocket", "has_counter": true }, "xing": { "title": "XING", "has_counter": true }, "whatsapp": { "title": "WhatsApp" }, "email": { "title": "Email" }, "print": { "title": "Print" } }, "facebook_sdk": { "lang": "en_US", "app_id": "" }, "lottie": { "defaultAnimationUrl": "https:\/\/foreverr.id\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json" } };</script>
     <script src="wp-includes/js/jquery/ui/core.min.js" id="jquery-ui-core-js"></script>
