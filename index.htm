@@ -17,7 +17,9 @@
     <meta property="og:title" content="The Wedding of Catur & Fetasya">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://catur-fetasya-wedding.site/">
-    <meta property="og:description" content="Blue Rustic">
+    <meta property="og:description" content="Akhirnya, kami mengundang Anda untuk merayakan momen istimewa kami!
+    Akan diselenggarakan di Bantul, Yogyakarta
+    Pada tanggal 12 Mei 2024">
     <meta property="og:image"
         content=" https://catur-fetasya-wedding.site/theme/floral/uw011/img/2b0a97c9faimg0804.jpeg ">
     <meta property="og:image:width" content="640">
@@ -2466,7 +2468,7 @@
                                                                                     </span>
                                                                                     <p
                                                                                         style="padding-top:5px;font-size: 13px;font-weight:500;text-align:center;">
-                                                                                        Rabu, 18 Februari 2022</p>
+                                                                                        Minggu, 12 Mei 2024</p>
                                                                                 </div> <svg height="100%" width="100%"
                                                                                     style="margin-bottom:-5px;">
                                                                                     <defs>
@@ -2518,11 +2520,11 @@
                                                                                 Scan QR Code digunakan untuk mencatat
                                                                                 kehadiran dan menukarkan souvenir.</p>
                                                                         </div>
-                                                                        <!-- <div class="img-credit">
-                                                                            <p id="foot_text">Made with love by 💌
-                                                                                <strong>foreverr.id</strong>
+                                                                        <div class="img-credit">
+                                                                            <p id="foot_text">❧ ❧ ❧ ❧ ❧ 💌 ☙ ☙ ☙ ☙ ☙
+                                                                                <!-- <strong>foreverr.id</strong> -->
                                                                             </p>
-                                                                        </div> -->
+                                                                        </div>
                                                                     </div> <a id="download-qr">DOWNLOAD E-INVITATION</a>
                                                                     <div id="loadImgx"
                                                                         style="text-align: center;margin: 14px 0;">
@@ -2894,7 +2896,26 @@
           elemenNamaTamu2.textContent = namaTamu || "Tamu Undangan";
         }
       </script>
-      
+      <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
+      <script>
+          // Fungsi untuk membuat QR code
+          function generateQRCode(text, elementId) {
+              // Menggunakan library QRCode.js
+              var qrcode = new QRCode(document.getElementById(elementId), {
+                  text: text,
+                  width: 170,
+                  height: 170
+              });
+          }
+  
+          // Mendapatkan nilai parameter 'to' dari URL
+          const urlParams1 = new URLSearchParams(window.location.search);
+          const namaTamu1 = urlParams1.get('to');
+  
+          // Panggil fungsi dengan teks yang diinginkan (namaTamu) dan id elemen untuk menampilkannya
+          generateQRCode(namaTamu1, 'qrcode-generated');
+      </script>
     
     <script
         id="elementor-pro-frontend-js-before">var ElementorProFrontendConfig = { "ajaxurl": "https:\/\/foreverr.id\/wp-admin\/admin-ajax.php", "nonce": "40f83a806e", "urls": { "assets": "https:\/\/foreverr.id\/wp-content\/plugins\/elementor-pro\/assets\/", "rest": "https:\/\/foreverr.id\/f6018700d720c997933c088b3493981ffe50602e\/api\/foreverr\/" }, "shareButtonsNetworks": { "facebook": { "title": "Facebook", "has_counter": true }, "twitter": { "title": "Twitter" }, "linkedin": { "title": "LinkedIn", "has_counter": true }, "pinterest": { "title": "Pinterest", "has_counter": true }, "reddit": { "title": "Reddit", "has_counter": true }, "vk": { "title": "VK", "has_counter": true }, "odnoklassniki": { "title": "OK", "has_counter": true }, "tumblr": { "title": "Tumblr" }, "digg": { "title": "Digg" }, "skype": { "title": "Skype" }, "stumbleupon": { "title": "StumbleUpon", "has_counter": true }, "mix": { "title": "Mix" }, "telegram": { "title": "Telegram" }, "pocket": { "title": "Pocket", "has_counter": true }, "xing": { "title": "XING", "has_counter": true }, "whatsapp": { "title": "WhatsApp" }, "email": { "title": "Email" }, "print": { "title": "Print" } }, "facebook_sdk": { "lang": "en_US", "app_id": "" }, "lottie": { "defaultAnimationUrl": "https:\/\/foreverr.id\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json" } };</script>
