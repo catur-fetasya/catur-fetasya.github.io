@@ -301,33 +301,28 @@
     src: url(https://catur-fetasya-wedding.site/s/yesevaone/v22/OpNJno4ck8vc-xYpwWWxli1VXg.ttf) format('truetype');
   }
   
+  .elementor-widget-container1 {
+    max-width: 800px; /* Adjust the max-width as needed */
+    width: 100%;
+    border: 1px solid #32373c; /* Thin gray border */
+    border-radius: 15px; /* Adjust the border-radius as needed */
+    overflow: hidden;
+    margin: 20px auto; /* Adjust the margin as needed for spacing from the edges */
+  }
+
   .map-container {
     position: relative;
     overflow: hidden;
     border-radius: 15px; /* Adjust the value as needed for rounded corners */
     padding-left: 20px; /* Adjust the left padding as needed */
     padding-right: 20px; /* Adjust the right padding as needed */
-    border: 2px solid #32373c; /* Thin gray border */
   }
-  
-  .map-container iframe {
+
+  .elementor-widget-container1 iframe {
     width: 100%;
-    height: 100%;
+    height: 450px; /* Adjust the height as needed */
     border: 0;
-  }
-  
-  /* Optional: Add some styling to make it more visually appealing */
-  .map-container::before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #f0f0f0; /* Set the background color as needed */
-    z-index: -1;
-    border-radius: 15px; /* Same as the container's border-radius */
+    border-radius: 15px; /* Adjust the border-radius as needed */
   }
   
 
