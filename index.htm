@@ -2897,15 +2897,23 @@
         }
       </script>
       <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
-
+      <style>
+        /* Gaya tambahan untuk latar belakang putih dan sudut yang dibulatkan */
+        #qrcode-generated1 {
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px;
+            display: inline-block;
+        }
+    </style>
       <script>
           // Fungsi untuk membuat QR code
           function generateQRCode(text, elementId) {
               // Menggunakan library QRCode.js
               var qrcode = new QRCode(document.getElementById(elementId), {
                   text: text,
-                  width: 170,
-                  height: 170
+                  width: 150,
+                  height: 150
               });
           }
   
