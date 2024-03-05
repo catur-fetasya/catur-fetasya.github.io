@@ -36,19 +36,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            var bodyElement = document.body;
+            // Mendapatkan elemen tombol "Buka Undangan"
+            var bukaUndanganButton = document.querySelector('.elementor-button');
 
-            // Memeriksa apakah browser mendukung mode full screen
-            if (bodyElement.requestFullscreen) {
-                // Mengatur mode full screen saat halaman diakses
-                bodyElement.requestFullscreen();
-            } else if (bodyElement.mozRequestFullScreen) { // Mozilla
-                bodyElement.mozRequestFullScreen();
-            } else if (bodyElement.webkitRequestFullscreen) { // Chrome, Safari, dan Opera
-                bodyElement.webkitRequestFullscreen();
-            } else if (bodyElement.msRequestFullscreen) { // Internet Explorer
-                bodyElement.msRequestFullscreen();
-            }
+            // Menambahkan event listener untuk menanggapi klik tombol
+            bukaUndanganButton.addEventListener('click', function () {
+                var bodyElement = document.body;
+
+                // Memeriksa apakah browser mendukung mode full screen
+                if (bodyElement.requestFullscreen) {
+                    // Mengatur mode full screen saat tombol ditekan
+                    bodyElement.requestFullscreen();
+                } else if (bodyElement.mozRequestFullScreen) { // Mozilla
+                    bodyElement.mozRequestFullScreen();
+                } else if (bodyElement.webkitRequestFullscreen) { // Chrome, Safari, dan Opera
+                    bodyElement.webkitRequestFullscreen();
+                } else if (bodyElement.msRequestFullscreen) { // Internet Explorer
+                    bodyElement.msRequestFullscreen();
+                }
+            });
         });
     </script>
 </head>
