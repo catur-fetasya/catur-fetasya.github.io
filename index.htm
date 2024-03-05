@@ -34,6 +34,21 @@
     <script src="ajax/libs/jquery/3.6.2/jquery.min.js" id="jquery-js"></script>
     <link rel="canonical" href="index.htm">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Memeriksa apakah browser mendukung mode full screen
+            if (document.documentElement.requestFullscreen) {
+                // Mengatur mode full screen saat halaman diakses
+                document.documentElement.requestFullscreen();
+            } else if (document.documentElement.mozRequestFullScreen) { // Mozilla
+                document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari, dan Opera
+                document.documentElement.webkitRequestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) { // Internet Explorer
+                document.documentElement.msRequestFullscreen();
+            }
+        });
+    </script>
 </head>
 
 <body data-rsssl="1"
@@ -539,7 +554,7 @@
                                                 data-id="36a5fa96" data-element_type="widget"
                                                 data-widget_type="image.default">
                                                 <div class="elementor-widget-container"> <img
-                                                        src="theme/floral/uw011/img/3aa4b04e57img0739.jpeg" title=""
+                                                        src="theme/floral/uw011/img/3aa4b04e57img0739 - Copy.jpeg" title=""
                                                         alt=""></div>
                                             </div>
                                             <div class="elementor-element elementor-element-44660c79 fup elementor-widget__width-initial elementor-widget elementor-widget-heading"
@@ -2324,7 +2339,7 @@
                                                             <div class="elementor-widget-container">
                                                                 <p
                                                                     class="elementor-heading-title elementor-size-default">
-                                                                    Anisa & Haris</p>
+                                                                    Fetasya & Catur</p>
                                                             </div>
                                                         </div>
                                                     </div>
