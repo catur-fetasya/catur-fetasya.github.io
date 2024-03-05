@@ -36,16 +36,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            var bodyElement = document.body;
+
             // Memeriksa apakah browser mendukung mode full screen
-            if (document.documentElement.requestFullscreen) {
+            if (bodyElement.requestFullscreen) {
                 // Mengatur mode full screen saat halaman diakses
-                document.documentElement.requestFullscreen();
-            } else if (document.documentElement.mozRequestFullScreen) { // Mozilla
-                document.documentElement.mozRequestFullScreen();
-            } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari, dan Opera
-                document.documentElement.webkitRequestFullscreen();
-            } else if (document.documentElement.msRequestFullscreen) { // Internet Explorer
-                document.documentElement.msRequestFullscreen();
+                bodyElement.requestFullscreen();
+            } else if (bodyElement.mozRequestFullScreen) { // Mozilla
+                bodyElement.mozRequestFullScreen();
+            } else if (bodyElement.webkitRequestFullscreen) { // Chrome, Safari, dan Opera
+                bodyElement.webkitRequestFullscreen();
+            } else if (bodyElement.msRequestFullscreen) { // Internet Explorer
+                bodyElement.msRequestFullscreen();
             }
         });
     </script>
