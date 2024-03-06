@@ -1947,33 +1947,28 @@
                                                     <div class="wishes-kit">
                                                         <form id="myForm">
                                                             <div class="form-group">
-                                                                <input class="form-control" name="nama" placeholder="Nama Kamu" required="">
+                                                                <label for="nama">Nama Kamu:</label>
+                                                                <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama kamu" required>
                                                             </div>
                                                             <div class="form-group">
-                                                                <textarea class="form-control" rows="4" name="wish"
-                                                                    placeholder="Berikan Ucapan &amp; Do&#039;a" required=""></textarea>
+                                                                <label for="wish">Ucapan & Doa:</label>
+                                                                <textarea class="form-control" rows="4" id="wish" name="wish" placeholder="Sampaikan ucapan dan doa" required></textarea>
                                                             </div>
-                                                            <div class="label-wish-form">Konfirmasi Kehadiran ?</div>
+                                                            <div class="label-wish-form">Konfirmasi Kehadiran?</div>
                                                             <div class="form-group">
-                                                                <input type="radio" name="keterangan" value="hadir" id="attend" required="">
-                                                                <label for="attend" class="attend">
-                                                                    Hadir
-                                                                </label>
+                                                                <input type="radio" name="keterangan" value="hadir" id="attend" required>
+                                                                <label for="attend">Hadir</label>
                                                                 <input type="radio" name="keterangan" value="tidak hadir" id="no-attend">
-                                                                <label for="no-attend" class="attend">
-                                                                    Tidak Hadir
-                                                                </label>
+                                                                <label for="no-attend">Tidak Hadir</label>
                                                             </div>
-                                                            <div class="form-group" id="number-attend">
-                                                                <div class="form-group-prepend">
-                                                                    <label>Jumlah Tamu</label>
-                                                                    <select type="number" name="jumlah">
-                                                                        <option disabled="">~</option>
-                                                                        <option value='1'>1 Tamu</option>
-                                                                        <option value='2'>2 Tamu</option>
-                                                                        <option value='3'>3 Tamu</option>
-                                                                    </select>
-                                                                </div>
+                                                            <div class="form-group">
+                                                                <label for="jumlah">Jumlah Tamu:</label>
+                                                                <select name="jumlah" id="jumlah">
+                                                                    <option value="">Pilih Jumlah Tamu</option>
+                                                                    <option value="1">1 Tamu</option>
+                                                                    <option value="2">2 Tamu</option>
+                                                                    <option value="3">3 Tamu</option>
+                                                                </select>
                                                             </div>
                                                             <button type="button" onclick="submitForm()">Kirim</button>
                                                         </form>
