@@ -1945,7 +1945,7 @@
                                                 data-widget_type="wishes.default">
                                                 <div class="elementor-widget-container">
                                                     <div class="wishes-kit">
-                                                        <form id="myForm" method="POST" onsubmit="return submitForm()">
+                                                        <form id="myForm">
                                                             <div class="form-group">
                                                                 <input class="form-control" name="nama" placeholder="Nama Kamu" required="">
                                                             </div>
@@ -1975,7 +1975,7 @@
                                                                     </select>
                                                                 </div>
                                                             </div>
-                                                            <button type="submit" onclick="submitForm()">Send</button>
+                                                            <button type="button" onclick="submitForm()">Send</button>
                                                         </form>
                                                         <div class="wish-alert"></div>
                                                         <div id="comments-container"></div>
@@ -3078,7 +3078,24 @@
                 function submitForm() {
                     var form = document.getElementById("myForm");
                     var formData = new FormData(form);
-                    console.log(formData);
+
+                    // Ensure form data matches HTML field names:
+                    if (!formData.has("nama")) {
+                        console.error("Missing form field: 'nama'");
+                        return;
+                    }
+                    if (!formData.has("wish")) {
+                        console.error("Missing form field: 'wish'");
+                        return;
+                    }
+                    if (!formData.has("keterangan")) {
+                        console.error("Missing form field: 'keterangan'");
+                        return;
+                    }
+                    if (!formData.has("jumlah")) {
+                        console.error("Missing form field: 'jumlah'");
+                        return;
+                    }
 
                     fetch("https://script.google.com/macros/s/AKfycbxNsBPVJjmE7KnBlZCvCpkR8tRa86z8czxRYX6gbSVYhnRSzeZ_yFz1iru38bOmkm8CHQ/exec", {
                         method: "POST",
@@ -3086,19 +3103,18 @@
                     })
                     .then(response => {
                         if (!response.ok) {
-                            throw new Error("Network response was not ok");
+                        throw new Error("Network response was not ok");
                         }
                         return response.text();
                     })
                     .then(data => {
                         console.log("Formulir berhasil dikirim:", data);
-                        // Di sini, Anda dapat menangani respons atau memberikan umpan balik kepada pengguna
                     })
                     .catch(error => {
                         console.error("Ada masalah dengan pengiriman formulir:", error);
-                        // Di sini, Anda dapat menangani kesalahan atau memberikan umpan balik kepada pengguna
                     });
-                }
+                    }
+
             </script>
 </body>
 
