@@ -1945,7 +1945,7 @@
                                                 data-widget_type="wishes.default">
                                                 <div class="elementor-widget-container">
                                                     <div class="wishes-kit">
-                                                        <form id="myForm">
+                                                        <form id="myForm" method="POST" onsubmit="return submitForm()">
                                                             <div class="form-group">
                                                                 <input class="form-control" name="nama" placeholder="Nama Kamu" required="">
                                                             </div>
@@ -1975,7 +1975,7 @@
                                                                     </select>
                                                                 </div>
                                                             </div>
-                                                            <button type="button" onclick="submitForm()">Send</button>
+                                                            <button type="submit" onclick="submitForm()">Send</button>
                                                         </form>
                                                         <div class="wish-alert"></div>
                                                         <div id="comments-container"></div>
