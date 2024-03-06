@@ -325,7 +325,24 @@
     border-radius: 15px; /* Adjust the border-radius as needed */
   }
   
+  .flexy-container {
+    display: flex;
+    justify-content: space-between; /* Untuk meletakkan tombol di kanan dan kiri */
+    /* background-color: brown; Warna latar belakang cokelat */
+    padding: 5px; /* Padding untuk memberikan ruang di sekitar tombol */
+    border-radius: 10px;
+  }
   
+  button1 {
+    flex: 1; /* Tombol memenuhi ruang yang tersedia dalam flex-container */
+    color: white; /* Warna teks tombol */
+    background-color: chocolate; /* Warna tombol cokelat */
+    border: none; /* Menghapus border tombol */
+    padding: 10px; /* Padding untuk memberikan ruang di dalam tombol */
+    cursor: pointer; /* Mengubah kursor menjadi pointer ketika diarahkan ke tombol */
+    border-radius: 15px;
+    text-align: center; /* Center the text within the button */
+  }
   
 
 .wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
