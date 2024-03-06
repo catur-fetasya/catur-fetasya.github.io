@@ -1975,7 +1975,7 @@
                                                                     </select>
                                                                 </div>
                                                             </div>
-                                                            <button type="button" onclick="submitForm()">Send</button>
+                                                            <button type="button" onclick="submitForm()">Kirim</button>
                                                         </form>
                                                         <div class="wish-alert"></div>
                                                         <div id="comments-container"></div>
@@ -2999,7 +2999,7 @@
 
     <script>
         function fetchData() {
-          fetch('https://script.google.com/macros/s/AKfycbxNsBPVJjmE7KnBlZCvCpkR8tRa86z8czxRYX6gbSVYhnRSzeZ_yFz1iru38bOmkm8CHQ/exec')
+          fetch('https://script.google.com/macros/s/AKfycbzx2poKQIGsKP5VOJgY6A34YW-E62PepWblt1ZmrAJgYKceRLUK7b_V7Am3ihAn98Qb4A/exec')
             .then(response => response.json())
             .then(data => {
               // Urutkan data dari paling terakhir
@@ -3076,45 +3076,39 @@
             
             <script>
                 function submitForm() {
-                    var form = document.getElementById("myForm");
-                    var formData = new FormData(form);
-
-                    // Ensure form data matches HTML field names:
-                    if (!formData.has("nama")) {
-                        console.error("Missing form field: 'nama'");
-                        return;
-                    }
-                    if (!formData.has("wish")) {
-                        console.error("Missing form field: 'wish'");
-                        return;
-                    }
-                    if (!formData.has("keterangan")) {
-                        console.error("Missing form field: 'keterangan'");
-                        return;
-                    }
-                    if (!formData.has("jumlah")) {
-                        console.error("Missing form field: 'jumlah'");
-                        return;
-                    }
-
-                    fetch("https://script.google.com/macros/s/AKfycbxNsBPVJjmE7KnBlZCvCpkR8tRa86z8czxRYX6gbSVYhnRSzeZ_yFz1iru38bOmkm8CHQ/exec", {
-                        method: "POST",
-                        body: formData
+                    var nama = document.getElementById("nama").value;
+                    var wish = document.getElementById("wish").value;
+                    var keterangan = document.getElementById("attend").value;
+                    var jumlah = document.getElementById("jumlah").value;
+        
+                    // Menyusun URL formulir Google Docs:
+                    var url = "https://docs.google.com/forms/d/e/1FAIpQLSf6enLc5wLEAGMckpqljot52OwYPHBfYSjkLTPPGxkHgrQOAg/formResponse";
+                    url += "?usp=pp_url";
+                    url += "&entry.979916342=" + encodeURIComponent(nama);
+                    url += "&entry.23306173=" + encodeURIComponent(wish);
+                    url += "&entry.769521874=" + encodeURIComponent(keterangan);
+                    url += "&entry.822914930=" + encodeURIComponent(jumlah);
+        console.log(url);
+                    // Mengirim request ke Google Apps Script:
+                    fetch(url, {
+                        method: "GET"
                     })
-                    .then(response => {
-                        if (!response.ok) {
-                        throw new Error("Network response was not ok");
-                        }
-                        return response.text();
-                    })
-                    .then(data => {
-                        console.log("Formulir berhasil dikirim:", data);
-                    })
-                    .catch(error => {
-                        console.error("Ada masalah dengan pengiriman formulir:", error);
-                    });
-                    }
-
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error("Network response was not ok");
+                            }
+                            return response.text();
+                        })
+                        .then(data => {
+                            console.log("Formulir berhasil dikirim:", data);
+                            alert("Formulir berhasil dikirim!");
+                        })
+                        .catch(error => {
+                            console.error("Ada masalah dengan pengiriman formulir:", error);
+                            // alert("Ada masalah dengan pengiriman formulir!");
+                        });
+                }
+        
             </script>
 </body>
 
