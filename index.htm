@@ -1945,39 +1945,38 @@
                                                 data-widget_type="wishes.default">
                                                 <div class="elementor-widget-container">
                                                     <div class="wishes-kit">
-                                                        <form id="myForm" action="https://script.google.com/macros/s/AKfycbx_RNLf_aPQtlxlzp2Ri3YknSadlaZb6vuzQsz88EIFT41wrcbIee3Ybsf34SyTl572iA/exec"
-        method="post" onsubmit="return submitForm()">
-        <div class="form-group">
-            <input class="form-control" name="name" placeholder="Nama Kamu" required="">
-        </div>
-        <div class="form-group">
-            <textarea class="form-control" rows="4" name="wishes"
-                placeholder="Berikan Ucapan &amp; Do&#039;a" required=""></textarea>
-        </div>
-        <div class="label-wish-form">Konfirmasi Kehadiran ?</div>
-        <div class="form-group">
-            <input type="radio" name="attendance" value="hadir" id="attend" required="">
-            <label for="attend" class="attend">
-                Hadir
-            </label>
-            <input type="radio" name="attendance" value="tidak hadir" id="no-attend">
-            <label for="no-attend" class="attend">
-                Tidak Hadir
-            </label>
-        </div>
-        <div class="form-group" id="number-attend">
-            <div class="form-group-prepend">
-                <label>Jumlah Tamu</label>
-                <select type="number" name="numb-attendence">
-                    <option disabled="">~</option>
-                    <option value='1'>1 Tamu</option>
-                    <option value='2'>2 Tamu</option>
-                    <option value='3'>3 Tamu</option>
-                </select>
-            </div>
-        </div>
-        <button type="submit">Send</button>
-    </form>
+                                                        <form id="myForm">
+                                                            <div class="form-group">
+                                                                <input class="form-control" name="name" placeholder="Nama Kamu" required="">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <textarea class="form-control" rows="4" name="wishes"
+                                                                    placeholder="Berikan Ucapan &amp; Do&#039;a" required=""></textarea>
+                                                            </div>
+                                                            <div class="label-wish-form">Konfirmasi Kehadiran ?</div>
+                                                            <div class="form-group">
+                                                                <input type="radio" name="attendance" value="hadir" id="attend" required="">
+                                                                <label for="attend" class="attend">
+                                                                    Hadir
+                                                                </label>
+                                                                <input type="radio" name="attendance" value="tidak hadir" id="no-attend">
+                                                                <label for="no-attend" class="attend">
+                                                                    Tidak Hadir
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-group" id="number-attend">
+                                                                <div class="form-group-prepend">
+                                                                    <label>Jumlah Tamu</label>
+                                                                    <select type="number" name="numb-attendence">
+                                                                        <option disabled="">~</option>
+                                                                        <option value='1'>1 Tamu</option>
+                                                                        <option value='2'>2 Tamu</option>
+                                                                        <option value='3'>3 Tamu</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <button type="button" onclick="submitForm()">Send</button>
+                                                        </form>
                                                         <div class="wish-alert"></div>
                                                         <div id="comments-container"></div>
                                                         <!-- <div class="wishes-box"></div> -->
@@ -3074,33 +3073,32 @@
         // Fetch data when the page loads
         window.onload = fetchData;
     </script>
-        <script>
-            function submitForm() {
-                // Mengumpulkan data formulir
-                var form = document.getElementById("myForm");
-                var formData = new FormData(form);
-    
-                // Membuat objek XMLHttpRequest
-                var xhr = new XMLHttpRequest();
-    
-                // Mengonfigurasi metode POST dan URL
-                xhr.open("POST", form.action, true);
-    
-                // Menangani perubahan status
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4 && xhr.status == 200) {
-                        // Berhasil mengirim data, dapat menambahkan logika atau tindakan selanjutnya
-                        alert("Formulir telah dikirim!");
-                    }
-                };
-    
-                // Mengirim data formulir
-                xhr.send(formData);
-    
-                // Mengembalikan false agar formulir tidak melanjutkan perilaku default
-                return false;
-            }
-        </script>
+            
+            <script>
+                function submitForm() {
+                    var form = document.getElementById("myForm");
+                    var formData = new FormData(form);
+        
+                    fetch("https://script.google.com/macros/s/AKfycbx_RNLf_aPQtlxlzp2Ri3YknSadlaZb6vuzQsz88EIFT41wrcbIee3Ybsf34SyTl572iA/exec", {
+                        method: "POST",
+                        body: formData
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("Network response was not ok");
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        console.log("Formulir berhasil dikirim:", data);
+                        // Di sini, Anda dapat menangani respons atau memberikan umpan balik kepada pengguna
+                    })
+                    .catch(error => {
+                        console.error("Ada masalah dengan pengiriman formulir:", error);
+                        // Di sini, Anda dapat menangani kesalahan atau memberikan umpan balik kepada pengguna
+                    });
+                }
+            </script>
 </body>
 
 </html>
