@@ -3135,7 +3135,7 @@
                     url += "&entry.23306173=" + encodeURIComponent(wish);
                     url += "&entry.769521874=" + encodeURIComponent(keterangan);
                     url += "&entry.822914930=" + encodeURIComponent(jumlah);
-        console.log(url);
+                    console.log(url);
                     // Mengirim request ke Google Apps Script:
                     fetch(url, {
                         method: "GET"
@@ -3154,6 +3154,7 @@
                             console.error("Ada masalah dengan pengiriman formulir:", error);
                             // alert("Ada masalah dengan pengiriman formulir!");
                         });
+                        fetchData();
                 }
         
             </script>
