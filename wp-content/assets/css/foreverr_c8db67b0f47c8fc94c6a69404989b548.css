@@ -302,7 +302,7 @@
   }
   
   .elementor-widget-container1 {
-    max-width: 800px; /* Adjust the max-width as needed */
+    max-width: 400px; /* Adjust the max-width as needed */
     width: 100%;
     border: 1px solid #32373c; /* Thin gray border */
     border-radius: 15px; /* Adjust the border-radius as needed */
@@ -319,8 +319,8 @@
   }
 
   .elementor-widget-container1 iframe {
-    width: 100%;
-    height: 450px; /* Adjust the height as needed */
+    width: 50%;
+    height: 300px; /* Adjust the height as needed */
     border: 0;
     border-radius: 15px; /* Adjust the border-radius as needed */
   }
