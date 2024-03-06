@@ -57,6 +57,55 @@
             });
         });
     </script> -->
+    <style>
+        #comments-container {
+          max-width: 600px;
+          margin: auto;
+          height: 300px;
+          overflow-y: auto;
+        }
+    
+        .comment {
+          display: flex;
+          align-items: center;
+          border: 1px solid #ddd;
+          margin: 10px;
+          padding: 10px;
+          border-radius: 5px;
+        }
+    
+        .avatar {
+          width: 30px;
+          height: 30px;
+          margin-right: 10px;
+        }
+    
+        .timestamp {
+          font-size: 12px;
+          color: #888;
+        }
+    
+        .name-container {
+          display: flex;
+          align-items: center;
+        }
+    
+        .name {
+          font-weight: bold;
+          margin-right: 5px;
+        }
+    
+        .icon {
+          width: 10px;
+          height: 10px;
+          margin-left: 2px;
+        }
+    
+        .wish {
+          font-style: italic;
+          color: #007bff;
+        }
+      </style>
 </head>
 
 <body data-rsssl="1"
@@ -1942,7 +1991,8 @@
                                                             </div> <button type="submit">Send</button>
                                                         </form>
                                                         <div class="wish-alert"></div>
-                                                        <div class="wishes-box"></div>
+                                                        <div id="comments-container"></div>
+                                                        <!-- <div class="wishes-box"></div> -->
                                                         <div class="pagenumb"></div>
                                                     </div>
                                                 </div>
@@ -2959,6 +3009,83 @@
         id="elementor-pro-frontend-js-before">var ElementorProFrontendConfig = { "ajaxurl": "https:\/\/foreverr.id\/wp-admin\/admin-ajax.php", "nonce": "40f83a806e", "urls": { "assets": "https:\/\/foreverr.id\/wp-content\/plugins\/elementor-pro\/assets\/", "rest": "https:\/\/foreverr.id\/f6018700d720c997933c088b3493981ffe50602e\/api\/foreverr\/" }, "shareButtonsNetworks": { "facebook": { "title": "Facebook", "has_counter": true }, "twitter": { "title": "Twitter" }, "linkedin": { "title": "LinkedIn", "has_counter": true }, "pinterest": { "title": "Pinterest", "has_counter": true }, "reddit": { "title": "Reddit", "has_counter": true }, "vk": { "title": "VK", "has_counter": true }, "odnoklassniki": { "title": "OK", "has_counter": true }, "tumblr": { "title": "Tumblr" }, "digg": { "title": "Digg" }, "skype": { "title": "Skype" }, "stumbleupon": { "title": "StumbleUpon", "has_counter": true }, "mix": { "title": "Mix" }, "telegram": { "title": "Telegram" }, "pocket": { "title": "Pocket", "has_counter": true }, "xing": { "title": "XING", "has_counter": true }, "whatsapp": { "title": "WhatsApp" }, "email": { "title": "Email" }, "print": { "title": "Print" } }, "facebook_sdk": { "lang": "en_US", "app_id": "" }, "lottie": { "defaultAnimationUrl": "https:\/\/foreverr.id\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json" } };</script>
     <script src="wp-includes/js/jquery/ui/core.min.js" id="jquery-ui-core-js"></script>
     <script defer="" src="wp-content/assets/js/foreverr_0a1678eeab4f49111bc40b32268d07a6.js"></script>
+
+    <script>
+        function fetchData() {
+          fetch('https://script.google.com/macros/s/AKfycbx_RNLf_aPQtlxlzp2Ri3YknSadlaZb6vuzQsz88EIFT41wrcbIee3Ybsf34SyTl572iA/exec')
+            .then(response => response.json())
+            .then(data => {
+              // Urutkan data dari paling terakhir
+              const sortedData = data.data.reverse();
+              displayComments(sortedData);
+            })
+            .catch(error => console.error('Error fetching data:', error));
+        }
+    
+        function formatTimestamp(timestamp) {
+          const date = new Date(timestamp);
+          const formattedDate = date.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+          return formattedDate;
+        }
+    
+        function displayComments(comments) {
+          const container = document.getElementById('comments-container');
+          container.innerHTML = '';
+    
+          comments.forEach(comment => {
+            const commentDiv = document.createElement('div');
+            commentDiv.classList.add('comment');
+    
+            // Avatar
+            const avatarImg = document.createElement('img');
+            avatarImg.classList.add('avatar');
+            avatarImg.src = 'https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars.png';
+    
+            // Content
+            const contentDiv = document.createElement('div');
+    
+            // Name Container
+            const nameContainerDiv = document.createElement('div');
+            nameContainerDiv.classList.add('name-container');
+    
+            // Name
+            const nameDiv = document.createElement('div');
+            nameDiv.classList.add('name');
+            nameDiv.textContent = comment['Nama'];
+    
+            // Keterangan icon
+            const iconImg = document.createElement('img');
+            iconImg.classList.add('icon');
+            iconImg.src = comment['Keterangan'] === 'hadir'
+              ? 'https://cdn-icons-png.flaticon.com/512/8215/8215539.png'
+              : 'https://static.thenounproject.com/png/1010747-200.png';
+    
+            nameContainerDiv.appendChild(nameDiv);
+            nameContainerDiv.appendChild(iconImg); // Add the icon
+    
+            // Timestamp, Wish, and other content
+            const timestampDiv = document.createElement('div');
+            timestampDiv.classList.add('timestamp');
+            timestampDiv.textContent = formatTimestamp(comment['TimeStamp']);
+    
+            const wishDiv = document.createElement('div');
+            wishDiv.classList.add('wish');
+            wishDiv.textContent = comment['Wish'];
+    
+            contentDiv.appendChild(nameContainerDiv);
+            contentDiv.appendChild(timestampDiv);
+            contentDiv.appendChild(wishDiv);
+    
+            commentDiv.appendChild(avatarImg);
+            commentDiv.appendChild(contentDiv);
+    
+            container.appendChild(commentDiv);
+          });
+        }
+    
+        // Fetch data when the page loads
+        window.onload = fetchData;
+    </script>
 </body>
 
 </html>
