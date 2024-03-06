@@ -325,13 +325,6 @@
     border-radius: 15px; /* Adjust the border-radius as needed */
   }
   
-  .flexy-container {
-    display: flex;
-    justify-content: space-between; /* Untuk meletakkan tombol di kanan dan kiri */
-    background-color: rgba(0, 0, 0, 0); /* Warna latar belakang cokelat */
-    padding: 10px; /* Padding untuk memberikan ruang di sekitar tombol */
-    border-radius: 15px;
-  }
   
   
 
