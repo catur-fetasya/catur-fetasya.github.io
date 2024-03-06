@@ -3078,7 +3078,8 @@
                 function submitForm() {
                     var form = document.getElementById("myForm");
                     var formData = new FormData(form);
-        
+                    console.log(formData);
+
                     fetch("https://script.google.com/macros/s/AKfycbxNsBPVJjmE7KnBlZCvCpkR8tRa86z8czxRYX6gbSVYhnRSzeZ_yFz1iru38bOmkm8CHQ/exec", {
                         method: "POST",
                         body: formData
