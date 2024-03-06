@@ -1945,14 +1945,14 @@
                                                 data-widget_type="wishes.default">
                                                 <div class="elementor-widget-container">
                                                     <div class="wishes-kit">
-                                                        <form action="https://script.google.com/macros/s/AKfycbx_RNLf_aPQtlxlzp2Ri3YknSadlaZb6vuzQsz88EIFT41wrcbIee3Ybsf34SyTl572iA/exec"
-        method="post">
+                                                        <form id="myForm" action="https://script.google.com/macros/s/AKfycbx_RNLf_aPQtlxlzp2Ri3YknSadlaZb6vuzQsz88EIFT41wrcbIee3Ybsf34SyTl572iA/exec"
+        method="post" onsubmit="return submitForm()">
         <div class="form-group">
             <input class="form-control" name="name" placeholder="Nama Kamu" required="">
         </div>
         <div class="form-group">
-            <textarea class="form-control" rows="4" name="wishes" placeholder="Berikan Ucapan &amp; Do&#039;a"
-                required=""></textarea>
+            <textarea class="form-control" rows="4" name="wishes"
+                placeholder="Berikan Ucapan &amp; Do&#039;a" required=""></textarea>
         </div>
         <div class="label-wish-form">Konfirmasi Kehadiran ?</div>
         <div class="form-group">
@@ -3076,26 +3076,29 @@
     </script>
         <script>
             function submitForm() {
-                var form = document.getElementById("wishes-form");
-    
+                // Mengumpulkan data formulir
+                var form = document.getElementById("myForm");
                 var formData = new FormData(form);
     
-                // Convert FormData to object
-                var formObject = {};
-                formData.forEach(function (value, key) {
-                    formObject[key] = value;
-                });
-    
-                // Log the form data (you can remove this in the final version)
-                console.log(formObject);
-    
-                // Perform AJAX request
+                // Membuat objek XMLHttpRequest
                 var xhr = new XMLHttpRequest();
-                xhr.open("POST", "https://script.google.com/macros/s/AKfycbx_RNLf_aPQtlxlzp2Ri3YknSadlaZb6vuzQsz88EIFT41wrcbIee3Ybsf34SyTl572iA/exec", true);
-                xhr.setRequestHeader("Content-Type", "application/json");
     
-                // Send the form data as JSON
-                xhr.send(JSON.stringify(formObject));
+                // Mengonfigurasi metode POST dan URL
+                xhr.open("POST", form.action, true);
+    
+                // Menangani perubahan status
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        // Berhasil mengirim data, dapat menambahkan logika atau tindakan selanjutnya
+                        alert("Formulir telah dikirim!");
+                    }
+                };
+    
+                // Mengirim data formulir
+                xhr.send(formData);
+    
+                // Mengembalikan false agar formulir tidak melanjutkan perilaku default
+                return false;
             }
         </script>
 </body>
