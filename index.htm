@@ -3085,7 +3085,7 @@
             // Keterangan icon
             const iconImg = document.createElement('img');
             iconImg.classList.add('icon');
-            iconImg.src = comment['Keterangan'] === 'hadir'
+            iconImg.src = comment['Wish'] === 'hadir'
               ? 'https://cdn-icons-png.flaticon.com/512/8215/8215539.png'
               : 'https://static.thenounproject.com/png/1010747-200.png';
     
@@ -3099,7 +3099,7 @@
     
             const wishDiv = document.createElement('div');
             wishDiv.classList.add('wish');
-            wishDiv.textContent = comment['Wish'];
+            wishDiv.textContent = comment['Keterangan'];
     
             contentDiv.appendChild(nameContainerDiv);
             contentDiv.appendChild(timestampDiv);
