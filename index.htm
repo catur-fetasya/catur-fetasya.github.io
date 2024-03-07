@@ -3154,7 +3154,16 @@
                             console.error("Ada masalah dengan pengiriman formulir:", error);
                             // alert("Ada masalah dengan pengiriman formulir!");
                         });
-                        fetchData();
+
+                                .finally(() => {
+            // Mengosongkan variabel setelah fungsi selesai
+            document.getElementById("nama").value = "";
+            document.getElementById("wish").value = "";
+            document.getElementById("attend").value = "";
+            document.getElementById("jumlah").value = "";
+            // Jika fetchData adalah fungsi lain yang ingin Anda panggil
+            fetchData();
+        });
                 }
         
             </script>
