@@ -333,7 +333,7 @@
     border-radius: 10px;
   }
   
-  button1 {
+  button {
     flex: 1; /* Tombol memenuhi ruang yang tersedia dalam flex-container */
     color: white; /* Warna teks tombol */
     background-color: chocolate; /* Warna tombol cokelat */
