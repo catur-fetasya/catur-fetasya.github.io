@@ -1943,7 +1943,7 @@
                                             <div class="elementor-element elementor-element-49373eb9 elementor-widget__width-inherit elementor-widget elementor-widget-wishes"
                                                 data-id="49373eb9" data-element_type="widget"
                                                 data-widget_type="wishes.default">
-                                                <div class="elementor-widget-container">
+                                                <div class="elementor-widget-container" style="border: 1px solid #32373c; margin: auto; max-width: 410px;">
                                                     <div class="wishes-kit">
                                                         <!-- <form id="myForm">
                                                             <div class="form-group">
@@ -2020,8 +2020,22 @@
                                                                 </div>
                                                             </div>
                                                             <div class="flexy-container">
-                                                                <button type="button" onclick="submitFormCheck()">Send</button>
-                                                              </div>
+                                                                <button type="button" onclick="submitFormCheck()" style="
+                                                                    flex: 1;
+                                                                    color: white; 
+                                                                    background-color: #32373c; 
+                                                                    border: none; 
+                                                                    padding: 10px; 
+                                                                    cursor: pointer;
+                                                                    border-radius: 10px;
+                                                                    text-align: center;
+                                                                    font-size: 16px; /* Ukuran font */
+                                                                    font-weight: bold; /* Ketebalan font */
+                                                                    transition: background-color 0.3s ease; /* Efek transisi warna latar belakang */
+                                                                ">
+                                                                    Send
+                                                                </button>  
+                                                            </div>                                                            
                                                             <!-- </div> <button type="button" onclick="submitForm()">Send</button> -->
                                                         </form>
                                                         <div class="wish-alert"></div>
@@ -3191,8 +3205,8 @@
                 if (namaTamu === "" || ucapan === "" || !kehadiran || jumlahTamu === "") {
                     // Jika ada yang belum terisi, tampilkan alert menggunakan SweetAlert2
                     Swal.fire({
-                        title: 'Oops...',
-                        text: 'Silakan isi semua input sebelum melanjutkan.',
+                        title: 'Isian belum lengkap',
+                        text: 'Silakan lengkapi sebelum mengirim pesan.',
                         imageUrl: 'https://catur-fetasya-wedding.site/wp-content/icon/emojiterbalik.svg', // Ganti dengan path gambar Anda
                         imageWidth: 100, // Sesuaikan lebar gambar
                         imageHeight: 100, // Sesuaikan tinggi gambar
