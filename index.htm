@@ -3057,7 +3057,10 @@
               const sortedData = data.data.reverse();
               displayComments(sortedData);
             })
-            .catch(error => console.error('Error fetching data:', error));
+            .catch(error => console.error('Error fetching data:', error));  
+            
+            document.getElementById('loadingIcon').style.display = 'none';
+            document.getElementById('submitButton').innerText = 'Send';          
         }
     
         function formatTimestamp(timestamp) {
@@ -3123,6 +3126,7 @@
     
         // Fetch data when the page loads
         window.onload = fetchData;
+
     </script>
             
             <script>
@@ -3177,10 +3181,7 @@
                         document.getElementById("jumlah").value = "";
                         // Jika fetchData adalah fungsi lain yang ingin Anda panggil
                         fetchData();
-                        setTimeout(function() {
-                            document.getElementById('loadingIcon').style.display = 'none';
-                            document.getElementById('submitButton').innerText = 'Send';
-                        }, 2000);
+                        
                     });
                 }
             </script>
