@@ -3127,7 +3127,12 @@
                     var wish = document.getElementById("wish").value;
                     var attend = document.getElementById("attend").value;
                     var jumlah = document.getElementById("jumlah").value;
-        
+                    // Mengubah nilai variabel attend berdasarkan nilai variabel jumlah
+                    if (jumlah == 1 || jumlah == 2 || jumlah == 3) {
+                        attend = "hadir";
+                    } else {
+                        attend = "Tidak Hadir";
+                    }
                     // Menyusun URL formulir Google Docs:
                     var url = "https://docs.google.com/forms/d/e/1FAIpQLSf6enLc5wLEAGMckpqljot52OwYPHBfYSjkLTPPGxkHgrQOAg/formResponse";
                     url += "?usp=pp_url";
@@ -3136,37 +3141,37 @@
                     url += "&entry.769521874=" + encodeURIComponent(attend);
                     url += "&entry.822914930=" + encodeURIComponent(jumlah);
                     console.log(url);
+            
                     // Mengirim request ke Google Apps Script:
                     fetch(url, {
                         method: "GET"
                     })
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error("Network response was not ok");
-                            }
-                            return response.text();
-                        })
-                        .then(data => {
-                            console.log("Formulir berhasil dikirim:", data);
-                            alert("Formulir berhasil dikirim!");
-                        })
-                        .catch(error => {
-                            console.error("Ada masalah dengan pengiriman formulir:", error);
-                            // alert("Ada masalah dengan pengiriman formulir!");
-                        });
-
-                                .finally(() => {
-            // Mengosongkan variabel setelah fungsi selesai
-            document.getElementById("nama").value = "";
-            document.getElementById("wish").value = "";
-            document.getElementById("attend").value = "";
-            document.getElementById("jumlah").value = "";
-            // Jika fetchData adalah fungsi lain yang ingin Anda panggil
-            fetchData();
-        });
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("Network response was not ok");
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        console.log("Formulir berhasil dikirim:", data);
+                        alert("Formulir berhasil dikirim!");
+                    })
+                    .catch(error => {
+                        console.error("Ada masalah dengan pengiriman formulir:", error);
+                        // alert("Ada masalah dengan pengiriman formulir!");
+                    })
+                    .finally(() => {
+                        // Mengosongkan variabel setelah fungsi selesai
+                        document.getElementById("nama").value = "";
+                        document.getElementById("wish").value = "";
+                        // document.getElementById("attend").value = "";
+                        document.getElementById("jumlah").value = "";
+                        // Jika fetchData adalah fungsi lain yang ingin Anda panggil
+                        fetchData();
+                    });
                 }
-        
             </script>
+            
 </body>
 
 </html>
