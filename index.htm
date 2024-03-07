@@ -2021,10 +2021,10 @@
                                                                 </div>
                                                             </div>
                                                             <div class="flexy-container">
-                                                                <button id="submitButton" type="button" onclick="submitForm()">
+                                                                <button1 id="submitButton" type="button1" onclick="submitForm()">
                                                                     <i id="loadingIcon" class="fas fa-spinner fa-spin" style="display: none;"></i>
                                                                     Send
-                                                                </button>
+                                                                </button1>
                                                             </div>                                                            
                                                             <!-- </div> <button type="button" onclick="submitForm()">Send</button> -->
                                                         </form>
@@ -3177,15 +3177,11 @@
                         document.getElementById("jumlah").value = "";
                         // Jika fetchData adalah fungsi lain yang ingin Anda panggil
                         fetchData();
+                        setTimeout(function() {
+                            document.getElementById('loadingIcon').style.display = 'none';
+                            document.getElementById('submitButton').innerText = 'Send';
+                        }, 2000);
                     });
-                    
-                    setTimeout(function() {
-                        // Sembunyikan ikon putar
-                        document.getElementById('loadingIcon').style.display = 'none';
-                        // Ganti teks tombol menjadi asal
-                        document.getElementById('submitButton').innerText = 'Send';
-                    }, 2000); // Ganti angka 2000 dengan waktu yang sesuai setelah permintaan selesai
-
                 }
             </script>
             
