@@ -2020,7 +2020,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="flexy-container">
-                                                                <button type="button" onclick="submitForm()">Send</button>
+                                                                <button type="button" onclick="submitFormCheck()">Send</button>
                                                               </div>
                                                             <!-- </div> <button type="button" onclick="submitForm()">Send</button> -->
                                                         </form>
@@ -3008,6 +3008,12 @@
         if (elemenNamaTamu2) {
           elemenNamaTamu2.textContent = namaTamu || "Tamu Undangan";
         }
+
+        // Menangkap elemen <p> dalam class 'qrcode-to' dan mengganti teksnya dengan nama tamu pada contoh kedua
+        const elemenNamaTamu3 = document.getElementById('nama');
+        if (elemenNamaTamu3) {
+          elemenNamaTamu3.value = namaTamu || "";
+        }
       </script>
       <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
       <style>
@@ -3171,7 +3177,33 @@
                     });
                 }
             </script>
+
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+            <script>
+            function submitFormCheck() {
+                // Memeriksa apakah nama, ucapan, kehadiran, dan jumlah tamu sudah terisi
+                var namaTamu = document.getElementById('nama').value;
+                var ucapan = document.getElementById('wish').value;
+                var kehadiran = document.querySelector('input[name="attendance"]:checked');
+                var jumlahTamu = document.getElementById('jumlah').value;
             
+                if (namaTamu === "" || ucapan === "" || !kehadiran || jumlahTamu === "") {
+                    // Jika ada yang belum terisi, tampilkan alert menggunakan SweetAlert2
+                    Swal.fire({
+                        title: 'Oops...',
+                        text: 'Silakan isi semua input sebelum melanjutkan.',
+                        imageUrl: 'https://catur-fetasya-wedding.site/wp-content/icon/emojiterbalik.svg', // Ganti dengan path gambar Anda
+                        imageWidth: 100, // Sesuaikan lebar gambar
+                        imageHeight: 100, // Sesuaikan tinggi gambar
+                        imageAlt: 'Custom Icon'
+                    });
+                } else {
+                    // Jika semua input sudah terisi, lanjutkan dengan submitForm()
+                    submitForm();
+                }
+            }
+            </script>
 </body>
 
 </html>
