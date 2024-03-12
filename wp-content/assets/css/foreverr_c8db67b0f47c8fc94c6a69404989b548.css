@@ -303,7 +303,7 @@
 
   @font-face {
     font-family: 'Surrealism';
-    src: url('https://catur-fetasya-wedding.site/wp-content/Font/Surrealism.woff2') format('woff2');
+    src: url(https://catur-fetasya-wedding.site/wp-content/Font/Surrealism.woff2) format('woff2');
     /* tambahkan format lain jika diperlukan, seperti woff atau ttf */
     font-weight: 400; /* sesuaikan berdasarkan font-weight yang Anda miliki */
     font-style: normal; /* atau italic jika diperlukan */
