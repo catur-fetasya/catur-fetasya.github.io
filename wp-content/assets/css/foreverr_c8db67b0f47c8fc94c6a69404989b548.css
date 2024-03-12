@@ -310,7 +310,11 @@
   }
   .Namautama {
     font-family: 'Surrealism', sans-serif;
-    font-size: 18px; /* Sesuaikan dengan ukuran yang diinginkan */
+    font-size: 20px; /* Sesuaikan dengan ukuran yang diinginkan */
+  }
+  .Namautamabawah {
+    font-family: 'Surrealism', sans-serif;
+    font-size: 28px; /* Sesuaikan dengan ukuran yang diinginkan */
   }
   
   .elementor-widget-container1 {
