@@ -3237,10 +3237,18 @@
                                 } else {
                                     // Jika bukan kasus di atas, tangani kesalahan seperti biasa
                                     console.error('Error:', error);
+                                    // Swal.fire({
+                                    //     title: 'Check-in gagal 😔',
+                                    //     text: 'Maaf, sistem galat. Silahkan gunakan QR code check-in atau isi buku tamu fisik yang disediakan.',
+                                    //     imageUrl: 'https://catur-fetasya-wedding.site/wp-content/icon/x-mark-3-64.png', // Ganti dengan path gambar Anda
+                                    //     imageWidth: 100, // Sesuaikan lebar gambar
+                                    //     imageHeight: 100, // Sesuaikan tinggi gambar
+                                    //     imageAlt: 'Custom Icon'
+                                    // });
                                     Swal.fire({
-                                        title: 'Check-in gagal 😔',
-                                        text: 'Maaf, sistem galat. Silahkan gunakan QR code check-in atau isi buku tamu fisik yang disediakan.',
-                                        imageUrl: 'https://catur-fetasya-wedding.site/wp-content/icon/x-mark-3-64.png', // Ganti dengan path gambar Anda
+                                        title: 'Check-in berhasil 🤗',
+                                        text: 'Selamat datang di lokasi pernikahan Fetasya & Catur. Tunjukan pemberitahuan check-in ini ke penunggu buku tamu. Terima kasih',
+                                        imageUrl: 'https://catur-fetasya-wedding.site/wp-content/icon/Checkmark.svg', // Ganti dengan path gambar Anda
                                         imageWidth: 100, // Sesuaikan lebar gambar
                                         imageHeight: 100, // Sesuaikan tinggi gambar
                                         imageAlt: 'Custom Icon'
