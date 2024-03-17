@@ -3224,7 +3224,7 @@
                             .catch(error => {
                                 // Tangani kesalahan jika ada
                                 // Jika pesan kesalahan mengindikasikan kesalahan CORS tapi status respons sebenarnya 200, anggap berhasil
-                                if (error.message.includes("200 (OK)")) {
+                                if (error.message.includes("Access to fetch at")) {
                                     // Jika ada indikasi respons sebenarnya berhasil meskipun ada kesalahan CORS
                                     Swal.fire({
                                         title: 'Check-in berhasil 🤗',
