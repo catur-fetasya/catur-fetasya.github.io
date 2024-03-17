@@ -107,6 +107,30 @@
           color: #007bff;
         }
       </style>
+      
+      <style>
+        .check-in-btn {
+            background-color: white;
+            color: navy;
+            padding: 10px 20px;
+            border: 1px solid navy; /* Menambahkan outline tipis */
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .check-in-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        .icon-gps {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+    </style>
 </head>
 
 <body data-rsssl="1"
@@ -2554,7 +2578,9 @@
                                                                                     style="font-size:13px">di
                                                                                     Tempat</span>
                                                                             </div>
-                                                                            
+                                                                            <button class="check-in-btn" onclick="checkIn()"><img class="icon-gps"
+                                                                                src="https://pic.onlinewebfonts.com/thumbnails/icons_336612.svg" alt="Location Icon">Check-in GPS
+                                                                            </button>
                                                                         </div>
                                                                         <div class="qr-noted">
                                                                             
@@ -3140,6 +3166,45 @@
                     submitForm();
                 }
             }
+            </script>
+
+            <script>
+                function checkIn() {
+                    // Mendapatkan lokasi pengguna menggunakan Geolocation API
+                    navigator.geolocation.getCurrentPosition(function (position) {
+                        // Mendapatkan koordinat pengguna
+                        var userLatitude = position.coords.latitude;
+                        var userLongitude = position.coords.longitude;
+
+                        // Koordinat gedung pernikahan (contoh koordinat)
+                        var weddingVenueLatitude = -7.891433; // Ganti dengan koordinat sesuai lokasi gedung pernikahan
+                        var weddingVenueLongitude = 110.306459; // Ganti dengan koordinat sesuai lokasi gedung pernikahan
+
+                        // Menentukan jarak antara pengguna dan gedung pernikahan
+                        var distance = calculateDistance(userLatitude, userLongitude, weddingVenueLatitude, weddingVenueLongitude);
+
+                        // Menampilkan pesan berdasarkan jarak
+                        if (distance < 1) { // Jarak dalam kilometer
+                            alert("Check-in berhasil! Selamat datang di gedung pernikahan.");
+                            // Lakukan tindakan check-in (opsional)
+                        } else {
+                            alert("Maaf, Anda belum berada di area gedung pernikahan.");
+                        }
+                    });
+                }
+
+                // Fungsi untuk menghitung jarak antara dua titik koordinat menggunakan Haversine formula (dalam kilometer)
+                function calculateDistance(lat1, lon1, lat2, lon2) {
+                    var R = 6371; // Radius bumi dalam kilometer
+                    var dLat = (lat2 - lat1) * Math.PI / 180;
+                    var dLon = (lon2 - lon1) * Math.PI / 180;
+                    var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                        Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+                    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                    var d = R * c;
+                    return d;
+                }
             </script>
 </body>
 
