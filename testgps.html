@@ -5,13 +5,48 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Undangan Nikah - Check-in</title>
 <style>
-/* CSS untuk styling (tambahkan sesuai kebutuhan) */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    color: #666;
+}
+
+button {
+    background-color: #fff;
+    color: navy;
+    padding: 10px 20px;
+    border: 2px solid navy;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #f0f0f0;
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
 </style>
 </head>
 <body>
 <h1>Undangan Nikah</h1>
-<p>Selamat datang! Silakan klik tombol "Check-in" jika Anda sudah sampai di area gedung pernikahan.</p>
-<button onclick="checkIn()">Check-in</button>
+<p>Selamat datang! Silakan klik tombol "Check-in GPS" jika Anda sudah sampai di area gedung pernikahan.</p>
+<button onclick="checkIn()"><img class="icon" src="https://pic.onlinewebfonts.com/thumbnails/icons_336612.svg" alt="Location Icon">Check-in GPS</button>
 <script>
 function checkIn() {
   // Mendapatkan lokasi pengguna menggunakan Geolocation API
@@ -20,15 +55,15 @@ function checkIn() {
     var userLatitude = position.coords.latitude;
     var userLongitude = position.coords.longitude;
     
-    // Koordinat gedung pernikahan
-    var weddingVenueLatitude = -7.891433;
-    var weddingVenueLongitude = 110.306459;
+    // Koordinat gedung pernikahan (contoh koordinat)
+    var weddingVenueLatitude = -7.891433; // Ganti dengan koordinat sesuai lokasi gedung pernikahan
+    var weddingVenueLongitude = 110.306459; // Ganti dengan koordinat sesuai lokasi gedung pernikahan
     
     // Menentukan jarak antara pengguna dan gedung pernikahan
     var distance = calculateDistance(userLatitude, userLongitude, weddingVenueLatitude, weddingVenueLongitude);
     
     // Menampilkan pesan berdasarkan jarak
-    if (distance < 0.1) { // Jarak dalam kilometer
+    if (distance < 1) { // Jarak dalam kilometer
       alert("Check-in berhasil! Selamat datang di gedung pernikahan.");
       // Lakukan tindakan check-in (opsional)
     } else {
