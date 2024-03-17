@@ -3197,7 +3197,7 @@
                         var distance = calculateDistance(userLatitude, userLongitude, weddingVenueLatitude, weddingVenueLongitude);
                         
                         // Menampilkan pesan berdasarkan jarak
-                        if (distance < 100) { // Jarak dalam kilometer
+                        if (distance < 0.5) { // Jarak dalam kilometer
                             // alert("Check-in berhasil! Selamat datang di gedung pernikahan.");
                             // Lakukan tindakan check-in (opsional)
                             fetch(urlform, {
