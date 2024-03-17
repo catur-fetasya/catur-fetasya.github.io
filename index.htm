@@ -3205,7 +3205,7 @@
                             })
 
                             .then(response => {
-                                if (response.status === 200) {
+                                if (error.message.includes("Access to fetch at")) {
                                     // Jika status kode 200, munculkan notifikasi check-in berhasil
                                     // alert("Check-in berhasil!");
                                     Swal.fire({
