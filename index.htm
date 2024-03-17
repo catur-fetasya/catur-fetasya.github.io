@@ -3177,25 +3177,64 @@
                         var userLatitude = position.coords.latitude;
                         var userLongitude = position.coords.longitude;
 
+                        // Mendapatkan nilai parameter 'to' dari URL
+                        const urlParams4 = new URLSearchParams(window.location.search);
+                        const namaTamu4 = urlParams4.get('to');
+
+                        var urlform = "https://docs.google.com/forms/d/e/1FAIpQLScIlXBYwhgt4wwRXDRpDPgiEb4d_XQjX0lbLWaVHAj9PwreNw/formResponse";
+                        url += "?usp=pp_url";
+                        url += "&entry.759324478=" + encodeURIComponent(namaTamu4);
+                        url += "&entry.1456260689=" + encodeURIComponent(userLatitude);
+                        url += "&entry.935020257=" + encodeURIComponent(userLongitude);
+                    
+                        console.log(urlform);
+
                         // Koordinat gedung pernikahan (contoh koordinat)
                         var weddingVenueLatitude = -7.891433; // Ganti dengan koordinat sesuai lokasi gedung pernikahan
                         var weddingVenueLongitude = 110.306459; // Ganti dengan koordinat sesuai lokasi gedung pernikahan
 
                         // Menentukan jarak antara pengguna dan gedung pernikahan
                         var distance = calculateDistance(userLatitude, userLongitude, weddingVenueLatitude, weddingVenueLongitude);
-
+                        
                         // Menampilkan pesan berdasarkan jarak
                         if (distance < 1) { // Jarak dalam kilometer
                             // alert("Check-in berhasil! Selamat datang di gedung pernikahan.");
                             // Lakukan tindakan check-in (opsional)
-                            Swal.fire({
-                                title: 'Check-in berhasil 🤗',
-                                text: 'Selamat datang di lokasi pernikahan Fetasya & Catur. Tunjukan pemberitahuan check-in ini ke penunggu buku tamu. Terima kasih',
-                                imageUrl: 'https://catur-fetasya-wedding.site/wp-content/icon/Checkmark.svg', // Ganti dengan path gambar Anda
-                                imageWidth: 100, // Sesuaikan lebar gambar
-                                imageHeight: 100, // Sesuaikan tinggi gambar
-                                imageAlt: 'Custom Icon'
+                            fetch(url, {
+                                method: "GET"
+                            })
+
+                            .then(response => {
+                                if (response.status === 200) {
+                                    // Jika status kode 200, munculkan notifikasi check-in berhasil
+                                    // alert("Check-in berhasil!");
+                                    Swal.fire({
+                                        title: 'Check-in berhasil 🤗',
+                                        text: 'Selamat datang di lokasi pernikahan Fetasya & Catur. Tunjukan pemberitahuan check-in ini ke penunggu buku tamu. Terima kasih',
+                                        imageUrl: 'https://catur-fetasya-wedding.site/wp-content/icon/Checkmark.svg', // Ganti dengan path gambar Anda
+                                        imageWidth: 100, // Sesuaikan lebar gambar
+                                        imageHeight: 100, // Sesuaikan tinggi gambar
+                                        imageAlt: 'Custom Icon'
+                                    });
+                                } else {
+                                    // Jika status kode bukan 200, munculkan notifikasi error
+                                    throw new Error("Network response was not ok");
+                                }
+                            })
+                            .catch(error => {
+                                // Tangani kesalahan jika ada
+                                // alert("Error: Network response was not ok");
+                                console.error('Error:', error);
+                                Swal.fire({
+                                    title: 'Check-in gagal 😔',
+                                    text: 'Maaf, sistem galat. Silahkan gunakan QR code check-in atau isi buku tamu fisik yang disediakan.',
+                                    imageUrl: 'https://catur-fetasya-wedding.site/wp-content/icon/x-mark-3-64.png', // Ganti dengan path gambar Anda
+                                    imageWidth: 100, // Sesuaikan lebar gambar
+                                    imageHeight: 100, // Sesuaikan tinggi gambar
+                                    imageAlt: 'Custom Icon'
+                                });
                             });
+                            
                         } else {
                             // alert("Maaf, Anda belum berada di area gedung pernikahan.");
                             // Lakukan tindakan check-in (opsional)
