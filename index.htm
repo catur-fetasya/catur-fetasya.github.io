@@ -2557,14 +2557,18 @@
                                                                             
                                                                         </div>
                                                                         <div class="qr-noted">
+                                                                            <br>
+                                                                            <br>
                                                                             <div id="qrcode-generated1"></div>
-                                                                            <p>Silahkan tunjukkan QR Code ini kepada
-                                                                                penerima tamu undangan di lokasi acara.
-                                                                                Scan QR Code digunakan untuk mencatat
-                                                                                kehadiran dan menukarkan souvenir.</p>
+                                                                            <br>
+                                                                            <br>
+                                                                            <p>Silahkan scan QR Code ini dengan
+                                                                                perangkat scanner di lokasi acara. 
+                                                                                QR Code digunakan untuk mencatat
+                                                                                kehadiran.</p>
                                                                         </div>
                                                                         <div class="img-credit">
-                                                                            <p id="foot_text">❧ ❧ ❧ ❧ ❧ 💌 ☙ ☙ ☙ ☙ ☙
+                                                                            <p >❧ ❧ ❧ ❧ ❧ 💌 ☙ ☙ ☙ ☙ ☙
                                                                                 <!-- <strong>foreverr.id</strong> -->
                                                                             </p>
                                                                         </div>
@@ -2954,6 +2958,8 @@
             padding: 10px;
             margin: 0px 10px; /* Atur nilai margin sesuai kebutuhan Anda */
             /* display: inline-block; */
+            width: 220px;
+            height: 220px;
         }
     </style>
       <script>
@@ -2962,8 +2968,8 @@
               // Menggunakan library QRCode.js
               var qrcode = new QRCode(document.getElementById(elementId), {
                   text: text,
-                  width: 120,
-                  height: 120
+                  width: 200,
+                  height: 200
               });
           }
   
