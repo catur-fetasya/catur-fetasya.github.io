@@ -3186,10 +3186,27 @@
 
                         // Menampilkan pesan berdasarkan jarak
                         if (distance < 1) { // Jarak dalam kilometer
-                            alert("Check-in berhasil! Selamat datang di gedung pernikahan.");
+                            // alert("Check-in berhasil! Selamat datang di gedung pernikahan.");
                             // Lakukan tindakan check-in (opsional)
+                            Swal.fire({
+                                title: 'Check-in berhasil 🤗',
+                                text: 'Selamat datang di lokasi pernikahan Fetasya & Catur. Tunjukan pemberitahuan check-in ini ke penunggu buku tamu. Terima kasih',
+                                imageUrl: 'https://catur-fetasya-wedding.site/wp-content/icon/Checkmark.svg', // Ganti dengan path gambar Anda
+                                imageWidth: 100, // Sesuaikan lebar gambar
+                                imageHeight: 100, // Sesuaikan tinggi gambar
+                                imageAlt: 'Custom Icon'
+                            });
                         } else {
-                            alert("Maaf, Anda belum berada di area gedung pernikahan.");
+                            // alert("Maaf, Anda belum berada di area gedung pernikahan.");
+                            // Lakukan tindakan check-in (opsional)
+                            Swal.fire({
+                                title: 'Check-in gagal 😔',
+                                text: 'Maaf, Anda belum berada di lokasi pernikahan.',
+                                imageUrl: 'https://catur-fetasya-wedding.site/wp-content/icon/x-mark-3-64.png', // Ganti dengan path gambar Anda
+                                imageWidth: 100, // Sesuaikan lebar gambar
+                                imageHeight: 100, // Sesuaikan tinggi gambar
+                                imageAlt: 'Custom Icon'
+                            });
                         }
                     });
                 }
